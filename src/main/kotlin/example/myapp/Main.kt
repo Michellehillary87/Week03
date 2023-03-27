@@ -1,11 +1,8 @@
 package example.myapp
 
 fun buildAquarium() {
-    //val aquarium6 = Aquarium(numberOfFish = 29)
-    val aquarium = Aquarium(length = 25, width = 25, height = 40)
+    val aquarium = Aquarium(numberOfFish = 29)
     aquarium.printSize()
-    val myTower = TowerTank(diameter = 25, height = 40)
-    myTower.printSize()
     //aquarium6.volume  = 70
     //aquarium6.printSize()
     //println("Volume: ${aquarium6.width * aquarium6.length * aquarium6.height / 1000} liters")
@@ -20,10 +17,31 @@ fun buildAquarium() {
 //    // everything custom
 //    val aquarium4 = Aquarium(width = 25, height = 35, length = 110)
 //    aquarium4.printSize()
+//    val myAquarium = Aquarium(width = 25, length = 25, height = 40)
+//    myAquarium.printSize()
+//    val myTower = TowerTank(diameter = 25, height = 40)
+//    myTower.printSize()
 }
-fun main() {
-    buildAquarium()
+fun makeFish() {
+    val shark = Shark ()
+    val pleco = Plecostomus()
+    println("Shark : ${shark.color}")
+    println("Plecostomus: ${pleco.color}")
 }
+fun main()
+{
+    val shark = Shark()
+    val pleco = Plecostomus()
+    println("Shark: ${shark.color}")
+    shark.eat()
+    println("Plecostomus: ${pleco.color}")
+    pleco.eat()
+    makeFish()
+}
+//fun main() {
+//    buildAquarium()
+//}
+
 // Step 1: Create a constructor
 //Width: 20 cm Length: 100 cm Height: 40 cm
 //Width: 20 cm Length: 100 cm Height: 60 cm
@@ -58,3 +76,11 @@ fun main() {
 //Volume: 62 liters
 //Width: 20 cm Length: 100 cm Height: 35 cm
 //Volume: 70 liters
+
+//Step 2: Create an interface
+//Shark: grey
+//hunt and eat fish
+//Plecostomus: gold
+//eat algae
+//Shark : grey
+//Plecostomus: gold
