@@ -1,22 +1,35 @@
 package example.myapp
 
 import java.lang.Math.PI
-class Aquarium (var length: Int = 100,
-                var width: Int = 20,
-                var height: Int = 40) {
+open class Aquarium (open var length: Int = 100,
+                open var width: Int = 20,
+                open var height: Int = 40) {
+    open val shape = "rectangle"
+    open var water: Double  = 0.0
+        get() =volume * 0.9
     fun printSize() {
+        println(shape)
         println(
             "Width: $width cm " +
                     "Length: $length cm " +
-                    "Height: $height cm "
-        )
+                    "Height: $height cm ")
         // 1 liter = 1000 cm ^ 3
-        println("Volume: $volume liters")
+        println("Volume: $volume liters water: $water liters (${water / volume * 100.0}% full)")
     }
-
+    class TowerTank (override var height: Int, var diameter: Int): Aquarium(height = height, width = diameter, length = diameter) {
+        override var length: Int
+            // ellipse area = π * r1 * r2
+            get() = (width/2 * length/2 * height/1000 * PI).toInt()
+            set(value) {
+                height = ((value * 1000 / PI) / (width/2 * length/2)).toInt()
+            }
+        override var water = volume * 0.8
+        override val shape = "cylinder"
+    }
     init {
         println("aquarium initializing")
     }
+
 //    init {
 //        // 1 liter = 1000 cm^3
 //        println("Volume: ${width * length * height / 1000} liters")
@@ -27,14 +40,19 @@ class Aquarium (var length: Int = 100,
         val tank = numberOfFish * 2000 * 1.1
         height = (tank / (length * width)).toInt()
     }
-    var volume: Int
+    open var volume: Int
         get() = width * height * length / 1000 // 1000 cm ^ 3 = 1 liter
         set(value) {
             height = (value * 1000) / (width * length)
         }
 }
-    // Dimension in cm
+    //Dimension in cm
     //var width: Int = 20
     //var height: Int = 40
     //var length: Int = 100
-    //Hasilnya : Width: 20 cm Length: 100 cm Height: 40 cm
+    //Hasil : Width: 20 cm Length: 100 cm Height: 40 cm
+
+//Step 1: Make the Aquarium class open
+//aquarium initializing
+//Width: 25 cm Length: 25 cm Height: 40 cm
+//Volume: 25 liters water: 22.5 liters (90.0% full)
