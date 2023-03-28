@@ -43,3 +43,5 @@ object GoldColor : FishColor {
 //eat algae
 //Shark : grey
 //Plecostomus: gold
+data class Decoration(val rocks: String) {
+}
