@@ -30,13 +30,16 @@ fun makeFish() {
 }
 fun main()
 {
-    val shark = Shark()
-    val pleco = Plecostomus()
-    println("Shark: ${shark.color}")
-    shark.eat()
-    println("Plecostomus: ${pleco.color}")
-    pleco.eat()
-    makeFish()
+//    val shark = Shark()
+//    val pleco = Plecostomus()
+//    println("Shark: ${shark.color}")
+//    shark.eat()
+//    println("Plecostomus: ${pleco.color}")
+//    pleco.eat()
+//    makeFish()
+    println(Direction.EAST.name)
+    println(Direction.EAST.ordinal)
+    println(Direction.EAST.degrees)
 }
 //fun main() {
 //    buildAquarium()
