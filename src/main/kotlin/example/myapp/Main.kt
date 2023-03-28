@@ -37,9 +37,9 @@ fun main()
 //    println("Plecostomus: ${pleco.color}")
 //    pleco.eat()
 //    makeFish()
-    println(Direction.EAST.name)
-    println(Direction.EAST.ordinal)
-    println(Direction.EAST.degrees)
+//    println(Direction.EAST.name)
+//    println(Direction.EAST.ordinal)
+//    println(Direction.EAST.degrees)
 }
 //fun main() {
 //    buildAquarium()
